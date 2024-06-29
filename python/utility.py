@@ -18,7 +18,7 @@ parser = argparse.ArgumentParser(
   description='Tool for automating organizational tasks for small competitive leagues.',
   epilog='Newest version available at: https://github.com/SoCIsLife/squash-league-automation')
 
-parser.add_argument('-p', '--player-db',        action='store', default='../db/players.ods')
+parser.add_argument('-p', '--player-db',        action='store', default='db/players.ods')
 parser.add_argument('-r', '--result-db',        action='store', default=None)
 parser.add_argument('-a', '--applicant-db',     action='store', default=None)
 parser.add_argument('-t', '--template-results', action='store', default=None)
@@ -33,11 +33,11 @@ this_month = pd.to_datetime('today')
 next_month = this_month + pd.offsets.MonthBegin(1)
 
 if not args.result_db:
-  args.result_db = '../db/' +  f"{this_month.year:04}" + '/'  + f"{this_month.month:02}" + '/results.ods'
+  args.result_db = 'db/' +  f"{this_month.year:04}" + '/'  + f"{this_month.month:02}" + '/results.ods'
 if not args.applicant_db:
-  args.applicant_db = '../db/' +  f"{next_month.year:04}" + '/'  + f"{next_month.month:02}" + '/applicants.ods'
+  args.applicant_db = 'db/' +  f"{next_month.year:04}" + '/'  + f"{next_month.month:02}" + '/applicants.ods'
 if not args.template_results:
-  args.template_results = '../db/' +  f"{next_month.year:04}" + '/'  + f"{next_month.month:02}" + '/results.ods'
+  args.template_results = 'db/' +  f"{next_month.year:04}" + '/'  + f"{next_month.month:02}" + '/results.ods'
 
 
 # construct database objects
